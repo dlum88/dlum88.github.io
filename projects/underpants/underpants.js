@@ -54,6 +54,8 @@ _.typeOf = function(param){
     
 }
 
+
+
 /** _.first()
 * Arguments:
 *   1) An array
@@ -657,7 +659,7 @@ _.reduce = function(array, func, seed){
 //          }    
 //     return seed;
 
-}
+};
 /** _.extend()
 * Arguments:
 *   1) An Object

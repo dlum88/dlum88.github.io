@@ -138,8 +138,25 @@ function nth(list, number) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(obj1, obj2){
+let result = false;
+if (typeof obj1 !== "object" || obj1 == null || typeof obj2 !== "object" || obj2 == null){
+  return result; // either not objects or null
+}
+if(Object.keys(obj1).length === 0 || Object.keys(obj2).length === 0) {
+  return true;
+}
+ 
+for (let key in obj1){
+  if (obj1[key] === obj2[key]){
+    result = true;
+  } else if (typeof obj1[key] === "object"){
+    result = deepEqual(obj1[key], obj2[key]);
+  } else {
+    result = obj1 === obj2;
+  }
+  return result;
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
